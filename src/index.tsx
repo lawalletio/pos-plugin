@@ -1,5 +1,5 @@
 import React from 'react';
-import AppIndex from './app';
+import AppIndex from './app/page';
 import PayDeskLayout from './app/paydesk/layout';
 import PayDeskPage from './app/paydesk/page';
 import PaymentPage from './app/payment/[orderId]/page';
