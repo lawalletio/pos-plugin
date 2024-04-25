@@ -1,11 +1,11 @@
+import { PantheonIcon, SharedWalletIcon } from '@bitcoin-design/bitcoin-icons-react/filled';
 import { normalizeLNDomain, useConfig, useWalletContext } from '@lawallet/react';
 import { Container, Divider, Flex, Heading, Icon, Text } from '@lawallet/ui';
 import Link from 'next/link';
 import React from 'react';
 import { Box } from '../components/Box';
-import { PantheonIcon, SharedWalletIcon } from '@bitcoin-design/bitcoin-icons-react/filled';
 
-export const AppIndex = () => {
+export default function AppIndex() {
   const { account } = useWalletContext();
   const config = useConfig();
   return (
@@ -50,4 +50,4 @@ export const AppIndex = () => {
       </Container>
     </>
   );
-};
+}

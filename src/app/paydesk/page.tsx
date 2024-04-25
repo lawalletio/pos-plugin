@@ -1,18 +1,16 @@
 'use client';
 import { formatToPreference, useConfig, useNumpad, useWalletContext } from '@lawallet/react';
+import { broadcastEvent, getPayRequest } from '@lawallet/react/actions';
 import { Button, Container, Divider, Flex, Heading, Icon, Keyboard, SatoshiIcon, Text } from '@lawallet/ui';
+import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 import { TokenList } from '../../components/TokenList';
-import { useOrder } from '../../context/Order';
-import { useNostr } from '../../context/Nostr';
 import { useLN } from '../../context/LN';
-import { broadcastEvent, getPayRequest } from '@lawallet/react/actions';
-import { useRouter } from 'next/navigation';
+import { useOrder } from '../../context/Order';
 
-export function PayDesk() {
+export default function PayDesk() {
   // Hooks
   const { generateOrderEvent, setAmount, setOrderEvent, clear } = useOrder();
-  const { publish } = useNostr();
   const { setLUD06 } = useLN();
 
   const {

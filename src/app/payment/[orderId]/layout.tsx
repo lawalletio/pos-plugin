@@ -4,7 +4,7 @@ import { LNProvider } from '../../../context/LN';
 import { OrderProvider } from '../../../context/Order';
 import { NostrProvider } from '../../../context/Nostr';
 
-export const PaymentLayout = ({ children }: { children: ReactNode }) => {
+export default function PaymentLayout({ children }: { children: ReactNode }) {
   return (
     <InjectedNFCProvider>
       <LNProvider>
@@ -14,4 +14,4 @@ export const PaymentLayout = ({ children }: { children: ReactNode }) => {
       </LNProvider>
     </InjectedNFCProvider>
   );
-};
+}

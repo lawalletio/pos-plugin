@@ -1,23 +1,21 @@
-import { Alert, Button, CheckIcon, Container, Divider, Flex, Heading, Icon, Loader, Text } from '@lawallet/ui';
-import React, { useCallback, useEffect, useState } from 'react';
-import { LNURLWStatus } from '../../../types/lnurl';
-import { useTheme } from 'styled-components';
 import { formatToPreference, useConfig, useCurrencyConverter, useWalletContext } from '@lawallet/react';
-import { ScanCardStatus } from '../../../types/card';
+import { Alert, Button, CheckIcon, Container, Divider, Flex, Heading, Icon, Loader, Text } from '@lawallet/ui';
 import { NDKEvent, NDKKind } from '@nostr-dev-kit/ndk';
+import axios from 'axios';
 import { useRouter, useSearchParams } from 'next/navigation';
+import React, { useCallback, useEffect, useState } from 'react';
+import { useTheme } from 'styled-components';
+import Confetti from '../../../components/Confetti';
+import { QRCode } from '../../../components/QRCode';
 import { useLN } from '../../../context/LN';
 import { useNostr } from '../../../context/Nostr';
 import { useOrder } from '../../../context/Order';
-import { LNURLResponse } from '../../../types/lnurl';
-import { ScanAction } from '../../../types/card';
-import axios from 'axios';
 import { useCard } from '../../../hooks/useCard';
 import { generateInternalTransactionEvent } from '../../../lib/utils';
-import { QRCode } from '../../../components/QRCode';
-import Confetti from '../../../components/Confetti';
+import { ScanAction, ScanCardStatus } from '../../../types/card';
+import { LNURLResponse, LNURLWStatus } from '../../../types/lnurl';
 
-export function PaymentPage({ props }: { props?: { id: string } }) {
+export default function PaymentPage({ props }: { props?: { id: string } }) {
   // Hooks
   const router = useRouter();
   const query = useSearchParams();
